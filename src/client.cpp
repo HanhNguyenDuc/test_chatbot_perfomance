@@ -346,6 +346,7 @@ std::string initConversation(const std::string &serverIP, const std::string &ser
     std::string route = "/apis/init";
     std::string url = getApiURI(serverIP, serverPort, route);
     auto r = cpr::Post(cpr::Url{(url)}, cpr::VerifySsl{false});
+    std::cout << r.text << std::endl;
     auto responseJson = nlohmann::json::parse(r.text);
     auto conv_id = responseJson["conversation_id"];
     // check type
@@ -439,6 +440,7 @@ int send_message(Conversation &conv, nlohmann::json intent_with_slots, nlohmann:
         lock_rei.~lock_guard();
 
         nlohmann::json *responseJson = new nlohmann::json;
+        
         *responseJson = nlohmann::json::parse(r->text);
         auto action = responseJson->operator[]("action");
         // std::cout << action << " - " << gt_action << std::endl;
