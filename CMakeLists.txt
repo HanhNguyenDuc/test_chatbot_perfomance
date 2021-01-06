@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.19.2)
+cmake_minimum_required(VERSION 3.16.8)
 project(AIF3_CLI CXX)
 file(GLOB SOURCES "src/*.cpp")
 add_executable(aif3_client ${SOURCES})
