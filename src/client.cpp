@@ -621,7 +621,7 @@ int main(int argc, char **argv)
         std::cout << std::setprecision(2);
         std::cout << "Summary: " << std::endl;
         std::cout << "Total Request time: " << pretifyTimeStampMiliseconds(end_time - start_time) << std::endl;
-        std::cout << "Average Request time: " << pretifyTimeStampMiliseconds(((float)(end_time - start_time) / 2500)) << std::endl;
+        std::cout << "Average Request time: " << pretifyTimeStampMiliseconds(((float)(end_time - start_time) / (2500 - fail_request))) << std::endl;
         std::cout << "Total true Response: " << true_predict << " - Percentage: " << (float)true_predict / 2500 << std::endl;
     }
     catch (const std::exception &e)
